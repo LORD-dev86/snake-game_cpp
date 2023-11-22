@@ -29,14 +29,6 @@ void SnakeGame::Print()
     #else 
         system("clear");
     #endif
-    
-    if(isGameOver)
-    {
-        std::cout << "\t\t!!!GAME OVER!!!" << std::endl;
-        std::cout << std::endl << std::endl;
-        std::cout << "Score: " << score;
-        return;
-    }
 
     //draw top border
     for(int i = 0; i < width + 2; i++)
@@ -127,6 +119,7 @@ void SnakeGame::Input()
                 break;
             case 27:
                 isGameOver = true;
+                getch();
                 dir = STOP;
         }
     }
@@ -219,6 +212,7 @@ void SnakeGame::Logic()
         if (snakeTailX[i] == snakeHeadX && snakeTailY[i] == snakeHeadY)
         {
             isGameOver = true;
+            getch();
         }
     }
 
