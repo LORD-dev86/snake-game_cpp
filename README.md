@@ -1,5 +1,6 @@
 # snake-game_cpp
-![изображение](https://github.com/LORD-dev86/snake-game_cpp/assets/79583622/e694b20b-e3a5-4411-9e2c-cc028b44f40b)
+![изображение](https://github.com/LORD-dev86/snake-game_cpp/assets/79583622/0aa54053-db6a-4ee2-9ea2-46a2bec02798)
+
 
 
 Console game "Snake" in C++. 
