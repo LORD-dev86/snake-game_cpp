@@ -1,13 +1,22 @@
 #include <iostream>
-#include <conio.h>
 #include <vector>
-#include <windows.h>
+#include <ctime>
 
+#ifdef _WIN32
+#include <conio.h>
+#include <windows.h>
+#else 
+#include <cstdlib>
+#include <ncurses>
+#endif
+
+#ifndef SNAKEGAME_H
+#define SNAKEGAME_H
 class SnakeGame
 {
     private:
         bool isGameOver;
-        int wigth, height;
+        int width, height;
         int score;
 
         int snakeHeadX, snakeHeadY;
@@ -23,11 +32,17 @@ class SnakeGame
             UP,
             DOWN
         };
+        eDirection dir;
         
     public:
         bool getIsGameOver()
         {
             return isGameOver;
+        }
+        
+        void setIsGameOver(bool l_isGameOver)
+        {
+            isGameOver = std::move(l_isGameOver);
         }
 
         void Setup();
@@ -35,3 +50,4 @@ class SnakeGame
         void Input();
         void Logic();
 };
+#endif
