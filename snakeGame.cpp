@@ -5,8 +5,8 @@ void SnakeGame::Setup()
     isGameOver = false;
     score = 0;
 
-    width = 50; 
-    height = 30;
+    width = 20; 
+    height = 12;
 
     dir = STOP;
     
@@ -21,14 +21,27 @@ void SnakeGame::Setup()
     snakeTailY.resize(100);
 }
 
-void SnakeGame::Print()
+void SnakeGame::ClearField()
 {
-    Sleep(60);
     #ifdef _WIN32
         system("cls");
     #else 
         system("clear");
     #endif
+}
+
+void SnakeGame::Print()
+{
+    Sleep(60);
+    ClearField();
+
+    if(isGameOver)
+    {
+        std::cout << "\t\t!!!GAME OVER!!!" << std::endl;
+        std::cout << std::endl << std::endl;
+        std::cout << "Score: " << score;
+        return;
+    }
 
     //draw top border
     for(int i = 0; i < width + 2; i++)
@@ -119,7 +132,6 @@ void SnakeGame::Input()
                 break;
             case 27:
                 isGameOver = true;
-                getch();
                 dir = STOP;
         }
     }
@@ -212,7 +224,6 @@ void SnakeGame::Logic()
         if (snakeTailX[i] == snakeHeadX && snakeTailY[i] == snakeHeadY)
         {
             isGameOver = true;
-            getch();
         }
     }
 

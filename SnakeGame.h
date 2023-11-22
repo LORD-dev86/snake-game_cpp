@@ -40,12 +40,13 @@ class SnakeGame
             return isGameOver;
         }
         
-        void setIsGameOver(bool l_isGameOver)
+        int getGameScore()
         {
-            isGameOver = std::move(l_isGameOver);
+            return score;
         }
 
         void Setup();
+        void ClearField();
         void Print();
         void Input();
         void Logic();

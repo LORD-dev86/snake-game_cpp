@@ -12,5 +12,7 @@ int main()
         game.Logic();  
     }
 
+    getch();
+
     return 0;
 }
